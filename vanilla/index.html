@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A dependency-free text and Markdown editor."
+    />
+    <title>Plain Paper — Vanilla file editor</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="toolbar">
+        <div class="file-info">
+          <div class="logo" aria-hidden="true">P</div>
+          <div class="file-copy">
+            <div class="file-title">
+              <strong id="file-name">untitled.md</strong>
+              <span
+                id="dirty-indicator"
+                class="dirty-indicator"
+                aria-label="Unsaved changes"
+                hidden
+              ></span>
+            </div>
+            <span id="status-message">Local document</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="open-button" class="button button-secondary">Open</button>
+          <button id="save-as-button" class="button button-secondary">
+            Save as
+          </button>
+          <button id="save-button" class="button button-primary">Save</button>
+        </div>
+
+        <input
+          id="file-input"
+          type="file"
+          accept=".txt,.md,.markdown,text/plain,text/markdown"
+          hidden
+        />
+      </header>
+
+      <main>
+        <section class="document">
+          <div class="document-toolbar">
+            <div class="tabs" role="tablist" aria-label="Document view">
+              <button
+                id="edit-tab"
+                class="tab active"
+                role="tab"
+                aria-selected="true"
+              >
+                Edit
+              </button>
+              <button
+                id="preview-tab"
+                class="tab"
+                role="tab"
+                aria-selected="false"
+              >
+                Preview
+              </button>
+            </div>
+            <span id="document-stats" class="stats"></span>
+          </div>
+
+          <div class="document-body">
+            <textarea
+              id="editor"
+              aria-label="Document contents"
+              spellcheck="true"
+              placeholder="Start writing…"
+            ></textarea>
+            <pre id="preview" class="preview" hidden></pre>
+          </div>
+
+          <footer class="document-footer">
+            <span id="file-type">Markdown</span>
+            <span>Ctrl/Cmd + S to save</span>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

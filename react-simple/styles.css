@@ -1,0 +1,280 @@
+:root {
+  color-scheme: light;
+  --background: #f5f4f2;
+  --surface: #fff;
+  --foreground: #292827;
+  --muted: #716f6c;
+  --soft: #efedeb;
+  --border: #ddd9d5;
+  --primary: #315d8b;
+  --warning: #d98b25;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.toolbar,
+.file-info,
+.file-title,
+.actions,
+.tabs,
+.document-toolbar,
+.document-footer {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar {
+  min-height: 64px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.file-info {
+  min-width: 0;
+  gap: 12px;
+}
+
+.logo {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+.file-copy {
+  min-width: 0;
+}
+
+.file-title {
+  gap: 8px;
+}
+
+.file-title strong,
+.file-copy > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-title strong {
+  font-size: 14px;
+}
+
+.file-copy > span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dirty-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warning);
+}
+
+.actions {
+  gap: 8px;
+}
+
+.button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.button.secondary {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.button.secondary:hover,
+.tab:hover {
+  background: var(--soft);
+}
+
+.button.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.button.primary:hover {
+  background: #3f72a5;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  flex: 1;
+  align-self: center;
+  padding: 24px;
+}
+
+.document {
+  display: flex;
+  min-height: calc(100vh - 112px);
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 2px 8px rgb(35 50 65 / 6%);
+}
+
+.document-toolbar {
+  min-height: 48px;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs {
+  gap: 2px;
+  padding: 3px;
+  border-radius: 7px;
+  background: var(--soft);
+}
+
+.tab {
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tab.active {
+  background: var(--surface);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px rgb(35 50 65 / 12%);
+}
+
+.stats,
+.document-footer {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.document-body {
+  position: relative;
+  flex: 1;
+}
+
+textarea,
+.preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 32px 40px;
+  border: 0;
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 15px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+textarea {
+  resize: none;
+  outline: 0;
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.preview {
+  font-family: inherit;
+}
+
+.document-footer {
+  min-height: 36px;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .button {
+    flex: 1;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  .document {
+    min-height: calc(100vh - 142px);
+  }
+
+  textarea,
+  .preview {
+    padding: 24px 20px;
+  }
+
+  .stats {
+    display: none;
+  }
+}

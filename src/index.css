@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.975 0.004 80);
+  --foreground: oklch(0.22 0.015 65);
+  --card: oklch(0.995 0.002 80);
+  --card-foreground: oklch(0.22 0.015 65);
+  --primary: oklch(0.28 0.025 65);
+  --primary-foreground: oklch(0.98 0.003 80);
+  --muted: oklch(0.94 0.006 75);
+  --muted-foreground: oklch(0.52 0.016 65);
+  --border: oklch(0.88 0.009 70);
+  --ring: oklch(0.52 0.04 65);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  min-width: 320px;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: oklch(0.84 0.04 75);
+}
