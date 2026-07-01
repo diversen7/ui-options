@@ -2,7 +2,7 @@
 
 Six implementations of the same small, local-first text editor:
 
-- React, Vite, and shadcn/ui conventions
+- React, Vite, Tailwind CSS, and shadcn/ui conventions (`react-shadcn-tailwind/`)
 - Vanilla HTML, CSS, and JavaScript
 - Alpine.js loaded from a CDN
 - Vue loaded from a CDN
@@ -13,7 +13,7 @@ Six implementations of the same small, local-first text editor:
 
 | App | Pros | Cons | Good fit |
 | --- | --- | --- | --- |
-| React | Strong component model, TypeScript support, large ecosystem, and good tooling for testing and larger teams. | Requires a build tool and dependency installation; introduces more concepts and project machinery. | Medium or large interactive applications, reusable design systems, and projects expected to grow. |
+| React + shadcn/ui + Tailwind | Strong component model, TypeScript support, large ecosystem, and good tooling for testing and larger teams. | Requires a build tool and dependency installation; introduces more concepts and project machinery. | Medium or large interactive applications, reusable design systems, and projects expected to grow. |
 | Vanilla | No framework, dependencies, or build step; uses only browser APIs and makes every operation explicit. | State synchronization and DOM updates must be written manually, which becomes repetitive as an interface grows. | Very small tools, mostly static pages, learning browser APIs, or projects where minimal dependencies matter most. |
 | Alpine | Adds reactive state and concise bindings directly to existing HTML with one small script. | Logic can become scattered across HTML attributes, and complex component relationships are harder to organize. | Adding modest interactivity to static or server-rendered pages, forms, menus, and small internal tools. |
 | Vue | Provides structured reactive state, computed values, methods, and declarative templates without requiring a build step. | The CDN build includes the template compiler and cannot use Vue Single-File Components; larger projects benefit from Vue's normal build setup. | Small or medium applications that need more structure than Alpine while retaining a simple CDN setup. |
@@ -37,7 +37,7 @@ Using the URL printed by Vite, open:
 
 | App | URL |
 | --- | --- |
-| React | `http://localhost:8002/` |
+| React + shadcn/ui + Tailwind | `http://localhost:8002/` |
 | Vanilla | `http://localhost:8002/vanilla/` |
 | Alpine | `http://localhost:8002/alpine/` |
 | Vue | `http://localhost:8002/vue/` |
@@ -49,9 +49,10 @@ replace `8002` with the port shown in the terminal.
 
 ## Run the apps separately
 
-### React
+### React + shadcn/ui + Tailwind
 
-The React app requires the Vite development server:
+The React app lives in `react-shadcn-tailwind/` and requires the Vite
+development server:
 
 ```bash
 npm install
